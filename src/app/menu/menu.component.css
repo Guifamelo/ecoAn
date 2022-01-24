@@ -1,0 +1,14 @@
+.cinza{
+    background-color: rgba(128, 128, 128, 0.678);
+}
+.enviado{
+    background-color: green;
+}
+.mlks{
+    background-color: lawngreen;
+    height: auto;
+}
+.carrinho{
+    background-color: indianred;
+    color: lavender;
+}

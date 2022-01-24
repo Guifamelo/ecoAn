@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="qtde">Qtde encontrada: <span>{{ getQtdeProdutos() }}</span> </div>
+    <div class="row d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="https://a-static.mlcdn.com.br/1500x1500/bombom-serenata-de-amor-garoto-pacote-825g-50un/dotimdotoso/e1620236de8f11eb9c004201ac18500e/9c0ef11326bb0465720f4f4344b8e4a1.jpg"
+                class="card-img-top" alt="..." width="150px" height="200px">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;" *ngFor="let produto of produtos">
+            <img src="https://cdn.awsli.com.br/600x450/334/334766/produto/18043861/e57164bfb6.jpg" class="card-img-top"
+                alt="..." width="150px" height="200px">
+            <div class="card-body">
+                <h5 class="card-title">{{ produto.productName }}</h5>
+                <p class="card-text">{{ produto.productDescription }}</p>
+                <a href="#" class="btn btn-primary">Valor: {{ produto.productPrice | currency: 'BRL'}}</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://www.infoescola.com/wp-content/uploads/2011/01/tomate_345187874.jpg" class="card-img-top"
+                alt="..." width="150px" height="200px">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+        <div class="row cinza m-3 d-flex">
+           <!-- <div class="row" [ngStyle]="{ backgroundColor : getCor() }">Envie seu email para receber a Newsletter</div>-->
+            <div class="row" [ngClass]="{ 'enviado' : emailEnviado }">Envie seu email para receber a Newsletter</div>
+            
+            <div class="col md-6">
+                <!--<p>{{ textoBotao }}</p>-->
+                <!--<p>{{ email }}</p>-->
+                <p *ngIf="emailEnviado; else naoEnviado">E-mail enviado com sucesso para: {{email}}</p>
+                <!-- <p *ngIf="!emailEnviado">E-mail ainda nao foi enviado</p>-->
+                <ng-template #naoEnviado>
+                    <p>E-mail ainda nao foi enviado</p>
+                </ng-template>
+            </div>
+            <div class="col md-6 ">
+                <!-- <input type="email" placeholder="digite seu email" (input)="onEmailEnter($event)"> -->
+                <input type="text" placeholder="digite seu email" [(ngModel)]="email">
+
+                <button type="button" (click)="onSubmitBotao()">botao</button>
+            </div>
+        </div>
+
+        <div class="row mlks"  *ngFor="let produto of produtos">
+            <div class="col md-4">
+                <p>Produto: {{ produto.productName }}</p>
+
+            </div>
+            <div class="col md-4">
+               <p>Descricao: {{ produto.productDescription }}</p>
+            </div>
+            <div class="col md-4">
+                <p>Preco: {{ produto.productPrice }}</p>
+            </div>
+        </div>
+        <div class="carrinho">
+            Carrinho
+        </div>
+    </div>
+</div>
