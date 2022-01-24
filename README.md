@@ -1,2 +1,2 @@
 # ecoAn
-ecommerce tavapp
+Angular - ecommerce tavapp
